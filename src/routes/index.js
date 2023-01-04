@@ -1,6 +1,7 @@
-import HeaderOnly from '~/layout/HeaderOnly';
+// import HeaderOnly from '~/layout/HeaderOnly';
 import FollowingPage from '~/pages/FollowingPage';
 import HomePage from '~/pages/HomePage';
+import LivePage from '~/pages/LivePage';
 import ProfilePage from '~/pages/ProfilePage';
 
 export const publicRoutes = [
@@ -12,7 +13,10 @@ export const publicRoutes = [
   {
     path: '/following',
     component: FollowingPage,
-    layout: HeaderOnly,
+  },
+  {
+    path: '/live',
+    component: LivePage,
   },
   {
     path: '/profile',

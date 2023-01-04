@@ -1,14 +1,25 @@
 import Sidebar from '~/layout/components/Sidebar';
 import Header from '~/layout/components/Header';
+import { Box } from '@mui/material';
 
 export default function DefaultLayout({ children }) {
   return (
-    <div>
+    <Box
+      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
       <Header />
-      <div className='container'>
+      <Box
+        sx={(theme) => ({
+          width: theme.palette.LAYOUT_WIDTH,
+          minHeight: theme.palette.MIN_HEIGHT,
+          backgroundColor: theme.palette.white.primary,
+          marginTop: theme.palette.HEADER_HEIGHT,
+          display: 'flex',
+        })}
+      >
         <Sidebar />
-        <div className='content'>{children}</div>
-      </div>
-    </div>
+        <Box sx={{ flex: 1 }}>{children}</Box>
+      </Box>
+    </Box>
   );
 }
