@@ -1,6 +1,8 @@
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import HomeIcon from '@mui/icons-material/Home';
-import PhotoCameraFrontIcon from '@mui/icons-material/PhotoCameraFront';
+import {
+  PeopleAltIcon,
+  HomeIcon,
+  PhotoCameraFrontIcon,
+} from '~/components/icons';
 import {
   List,
   ListItem,

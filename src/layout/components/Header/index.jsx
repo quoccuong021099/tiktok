@@ -1,46 +1,25 @@
-import { Logout, Settings } from '@mui/icons-material';
-import FileUploadIcon from '@mui/icons-material/FileUpload';
-import LoginIcon from '@mui/icons-material/Login';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import SearchIcon from '@mui/icons-material/Search';
-import TelegramIcon from '@mui/icons-material/Telegram';
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
   IconButton,
-  ListItemIcon,
-  Menu,
-  MenuItem,
-  TextField,
   Toolbar,
   Tooltip,
 } from '@mui/material';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import images from '~/assets/images';
+import { LoginIcon, TelegramIcon, UploadIcon } from '~/components/icons';
+import ListMenu from './ListMenu';
+import SearchInput from './SearchInput';
 
 export default function Header() {
-  const isLogin = false;
-
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const isLogin = true;
 
   const navItems = [
     {
       link: '/upload',
       component: (
-        <Button variant='outlined' startIcon={<FileUploadIcon />}>
+        <Button variant='outlined' startIcon={<UploadIcon />}>
           Upload
         </Button>
       ),
@@ -64,36 +43,8 @@ export default function Header() {
       ),
     },
     {
-      link: '/messenger',
-      component: (
-        <div>
-          <IconButton onClick={handleClick}>
-            {isLogin ? <Avatar /> : <MoreVertIcon />}
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            id='account-menu'
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-          >
-            <MenuItem>
-              <ListItemIcon>
-                <Settings fontSize='small' />
-              </ListItemIcon>
-              Settings
-            </MenuItem>
-            <MenuItem>
-              <ListItemIcon>
-                <Logout fontSize='small' />
-              </ListItemIcon>
-              Logout
-            </MenuItem>
-          </Menu>
-        </div>
-      ),
+      link: '/',
+      component: <ListMenu isLogin={isLogin} />,
     },
   ];
 
@@ -119,20 +70,9 @@ export default function Header() {
         <Link to='/'>
           <img src={images.logo} alt='Tiktok' />
         </Link>
-        <Box sx={{ minWidth: '400px' }}>
-          <TextField
-            fullWidth
-            size='small'
-            placeholder='Tìm kiếm tài khoản hoặc video'
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              ),
-            }}
-          />
-        </Box>
+
+        <SearchInput />
+
         <Box
           sx={{
             display: 'flex',

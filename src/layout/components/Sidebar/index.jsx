@@ -1,7 +1,7 @@
 import { Box, Button, Divider } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuSidebar from './MenuSidebar';
-import SuggestAccount from './SuggestAccount';
+import SuggestAccount from '~/components/SuggestAccount';
 const StyledButton = styled(Button)(() => ({
   textTransform: 'none',
   padding: 0,
